@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace OdeToFood
@@ -25,7 +27,7 @@ namespace OdeToFood
 
             app.UseStaticFiles();
 
-            app.UseMvc();
+            app.UseMvc(ConfigureRoutes);
 
             app.UseWelcomePage( new WelcomePageOptions
             {
@@ -35,8 +37,15 @@ namespace OdeToFood
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetMessageOfTheDay();
+                context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync($"{greeting} : {env.EnvironmentName}");
             });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routerBuider)
+        {
+            routerBuider.MapRoute("Default", 
+                "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

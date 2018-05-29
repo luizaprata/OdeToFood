@@ -6,10 +6,6 @@ namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
-        protected HomeController()
-        {
-        }
-
         // GET: /<controller>/
         public IActionResult Index()
         {
