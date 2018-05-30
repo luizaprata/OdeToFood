@@ -1,15 +1,16 @@
-﻿@model IEnumerable<OdeToFood.Entities.Restaurant>
+﻿@model OdeToFood.ViewModels.Home.HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Home";
 }
 
+<h2>@Model.CurrentMessageOfTheDay</h2>
 <table>
     <tr>
         <th>Id</th>
         <th>Name</th>
     </tr>
-    @foreach (var restaurant in Model)
+    @foreach (var restaurant in Model.Restaurants)
     {
         <tr>
             <td>

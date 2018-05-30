@@ -2,21 +2,27 @@
 
 using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Services;
+using OdeToFood.ViewModels.Home;
 
 namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
+        private IGreeter _greeter;
 
-        public HomeController(IRestaurantData restaurantData)
+        public HomeController(IRestaurantData restaurantData, IGreeter greeter)
         {
             _restaurantData = restaurantData;
+            _greeter = greeter;
         }
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View(_restaurantData.GetAll());
+            var model = new HomeIndexViewModel();
+            model.Restaurants = _restaurantData.GetAll();
+            model.CurrentMessageOfTheDay = _greeter.GetMessageOfTheDay();
+            return View(model);
         }
     }
 }
