@@ -32,5 +32,10 @@ namespace OdeToFood.Controllers
                 return RedirectToAction(nameof(Index));
             return View(model);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
