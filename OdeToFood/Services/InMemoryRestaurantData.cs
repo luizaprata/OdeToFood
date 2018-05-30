@@ -1,8 +1,6 @@
-﻿using OdeToFood.Models;
-using System;
+﻿using OdeToFood.Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace OdeToFood.Services
 {

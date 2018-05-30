@@ -1,7 +1,6 @@
 ﻿// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 using Microsoft.AspNetCore.Mvc;
-using OdeToFood.Models;
 using OdeToFood.Services;
 
 namespace OdeToFood.Controllers
