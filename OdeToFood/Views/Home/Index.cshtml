@@ -9,21 +9,25 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
+        <th>Cuisine</th>
         <th></th>
     </tr>
     @foreach (var restaurant in Model.Restaurants)
     {
-        <tr>
-            <td>
-                <p>@restaurant.Id</p>
-            </td>
-            <td>
-                <p>@restaurant.Name</p>
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <p>@restaurant.Id</p>
+        </td>
+        <td>
+            <p>@restaurant.Name</p>
+        </td>
+        <td>
+            <p>@restaurant.Cuisine</p>
+        </td>
+        <td>
+            <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
+        </td>
+    </tr>
     }
 
 </table>

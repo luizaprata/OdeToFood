@@ -1,8 +1,9 @@
-﻿namespace OdeToFood.Entities
+﻿using OdeToFood.Entities;
+
+namespace OdeToFood.ViewModels.Home
 {
-    public class Restaurant
+    public class RestaurantEditModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public CuisineType Cuisine { get; set; }
     }

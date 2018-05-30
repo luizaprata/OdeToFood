@@ -1,6 +1,7 @@
 ﻿// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 using Microsoft.AspNetCore.Mvc;
+using OdeToFood.Entities;
 using OdeToFood.Services;
 using OdeToFood.ViewModels.Home;
 
@@ -33,9 +34,22 @@ namespace OdeToFood.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(RestaurantEditModel model)
+        {
+            var newRestaurant = new Restaurant();
+            newRestaurant.Name = model.Name;
+            newRestaurant.Cuisine = model.Cuisine;
+            newRestaurant = _restaurantData.Add(newRestaurant);
+
+            return View("Details", newRestaurant);
+
         }
     }
 }

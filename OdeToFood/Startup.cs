@@ -14,7 +14,8 @@ namespace OdeToFood
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IGreeter, Greeter>();
-            services.AddScoped<IRestaurantData, InMemoryRestaurantData>(); // any component need IRestaurantData create an instance for each HTTP request and reused that instance throughout that one request. After that, you can throw it away
+            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>(); // any component need IRestaurantData create an instance for each HTTP request and reused that instance throughout that one request. After that, you can throw it away
+            //AddScoped => any component need IRestaurantData create an instance for each HTTP request and reused that instance throughout that one request. After that, you can throw it away
             services.AddMvc();
         }
 

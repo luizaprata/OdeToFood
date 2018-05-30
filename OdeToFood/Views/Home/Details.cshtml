@@ -1,6 +1,9 @@
-﻿@model OdeToFood.Entities.Restaurant
+﻿@using OdeToFood.Entities
+@model Restaurant
 
 
 <h2>@Model.Name</h2>
+<p>Id: @Model.Id</p>
+<p>Cuisine: @Model.Cuisine</p>
 
 <a asp-action="Index">Home</a>
